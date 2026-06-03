@@ -256,7 +256,7 @@ def Rplus(self):
     import numpy as np
     metadata = copy.copy(self._metadata)
     metadata['spin_weight'] = self.spin_weight-1
-    metadata['ell_min'] = min(abs(self.spin_weight-1), self.ell_min)
+    metadata['ell_min'] = abs(self.spin_weight-1)
     metadata['ell_max'] = self.ell_max
     shape = list(self.shape)
     shape[-1] = LM_total_size(metadata['ell_min'], metadata['ell_max'])
@@ -311,7 +311,7 @@ def Rminus(self):
     import numpy as np
     metadata = copy.copy(self._metadata)
     metadata['spin_weight'] = self.spin_weight+1
-    metadata['ell_min'] = min(abs(self.spin_weight+1), self.ell_min)
+    metadata['ell_min'] = abs(self.spin_weight+1)
     metadata['ell_max'] = self.ell_max
     shape = list(self.shape)
     shape[-1] = LM_total_size(metadata['ell_min'], metadata['ell_max'])
